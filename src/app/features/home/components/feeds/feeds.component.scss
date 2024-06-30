@@ -1,0 +1,26 @@
+@use '../../../../../sass/abstracts';
+
+.feeds {
+    @include abstracts.flex-row-center;
+    border-bottom: 1px solid abstracts.$gray-500;
+    &__feed {
+        @include abstracts.text-bold(1rem, 600, abstracts.$gray-400);
+        padding-inline: 1rem;
+        padding-block: .5rem;
+
+        &:hover {
+            color: abstracts.$dark-gray;
+        }
+        
+        &--active {
+            border-bottom: 2px solid abstracts.$primary-green;
+            color: abstracts.$primary-green;
+
+            &:hover {
+                color: abstracts.$primary-green;
+            }
+        }
+
+        
+    }
+}

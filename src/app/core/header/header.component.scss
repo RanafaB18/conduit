@@ -13,6 +13,7 @@
   
   &__logo {
     @include text-bold(1.5rem, 800, $primary-green);
+    font-family: 'Titillium Web';
     @include phone-sm {
       margin-right: auto;
     }
@@ -28,6 +29,9 @@
 
     &--active {
       color: rgba($color: #000000, $alpha: 1.0)
+    }
+    &:hover {
+      color: $dark-gray;
     }
   }
 }

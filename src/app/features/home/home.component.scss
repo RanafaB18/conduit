@@ -11,10 +11,57 @@
     &__title {
         text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
         @include abstracts.text-bold(3.5rem, 800, white);
+        font-family: 'Titillium Web';
     }
     
     &__desc {
         @include abstracts.text-bold(1.5rem, 300, white);
         font-family: 'Source Sans Pro 3';
+        letter-spacing: .1rem;
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    @include abstracts.maxCap;
+    @include abstracts.tablet {
+        grid-template-columns: 1fr;
+    }
+    margin-top: 2rem;
+    &__feed {
+        height: 300px;
+        padding-right: 2rem;
+    }
+
+    .tags-container {
+        background-color: abstracts.$gray-200;
+        padding: 0.6rem .5rem .7rem .5rem;
+        height: max-content;
+        border-radius: .25rem;
+
+        &__title {
+            @include abstracts.text-bold(1rem, 600);
+            font-family: 'Source Sans Pro 3';
+            margin-bottom: 0.22rem;
+        }
+
+        &__tags {
+            @include abstracts.flex-row-center;
+            flex-wrap: wrap;
+            gap: .32rem;
+        }
+
+        &__tag-pill {
+            @include abstracts.text-bold(.85rem, 400, white);
+            padding: .1rem .5rem;
+            border-radius: 10rem;
+            background-color: abstracts.$gray-700;
+            cursor: pointer;
+
+            &:hover {
+                background-color: abstracts.$gray-800;
+            }
+        }
     }
 }

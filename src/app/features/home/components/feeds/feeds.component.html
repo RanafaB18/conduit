@@ -1,0 +1,9 @@
+<article class="feeds">
+    <a (click)="tag.set('')" routerLink="/" [class]="{
+        'feeds__feed': true,
+        'feeds__feed--active': !!!tag()
+    }">Global Feed</a>
+    @if (tag()) {
+        <a class="feeds__feed feeds__feed--active">{{tag()}}</a>
+    }
+</article>

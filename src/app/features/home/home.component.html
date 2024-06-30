@@ -3,5 +3,17 @@
         <h2 class="banner__title">conduit</h2>
         <p class="banner__desc">A place to share knowledge</p>
     </section>
-    <section></section>
+    <section class="content">
+        <div class="content__feed">
+            <app-feeds [(tag)]="selectedTag"/>
+        </div>
+        <div class="tags-container">
+            <h4 class="tags-container__title">Popular Tags</h4>
+            <div class="tags-container__tags">
+                @for (tag of tags; track tag) {
+                    <a (click)="getFeedForTag(tag)" class="tags-container__tag-pill">{{tag}}</a>
+                }
+            </div>
+        </div>
+    </section>
 </main>
