@@ -1,7 +1,3 @@
-@use 'typography';
-@use 'utilities';
-@use 'variables';
-
 *,
 *::after,
 *::before {
@@ -10,7 +6,8 @@
 
 * {
   margin: 0;
-  line-height: 1.5;
+  padding: 0;
+  line-height: calc(1em + 0.5rem);
   font-family: 'Titillium Web';
 }
 
@@ -36,4 +33,8 @@ select {
 
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+
+ol, ul {
+	list-style: none;
 }

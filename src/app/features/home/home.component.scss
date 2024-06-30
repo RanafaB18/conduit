@@ -1,0 +1,20 @@
+@use '../../../sass/abstracts';
+
+.banner {
+    display: grid;
+    place-content: center;
+    gap: 0.62rem;
+    text-align: center;
+    background-color: abstracts.$primary-green;
+    padding-block: 2rem;
+
+    &__title {
+        text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+        @include abstracts.text-bold(3.5rem, 800, white);
+    }
+    
+    &__desc {
+        @include abstracts.text-bold(1.5rem, 300, white);
+        font-family: 'Source Sans Pro 3';
+    }
+}

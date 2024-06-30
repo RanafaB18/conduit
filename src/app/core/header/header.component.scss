@@ -1,0 +1,33 @@
+@use "../../../sass/abstracts" as *;
+
+.navbar {
+  @include flex-row-center;
+  justify-content: space-between;
+  padding-block: 0.7rem;
+
+  @include phone-sm {
+    @include flex-col;
+  }
+
+  @include maxCap;
+  
+  &__logo {
+    @include text-bold(1.5rem, 800, $primary-green);
+    @include phone-sm {
+      margin-right: auto;
+    }
+  }
+  &__navlinks {
+    margin-left: auto;
+  }
+  &__navlink {
+    text-decoration: none;
+    margin-left: 1rem;
+    float: left;
+    color: rgba($color: #000000, $alpha: 0.3);
+
+    &--active {
+      color: rgba($color: #000000, $alpha: 1.0)
+    }
+  }
+}
