@@ -1,19 +1,33 @@
 <main>
-    <section class="banner">
-        <h2 class="banner__title">conduit</h2>
-        <p class="banner__desc">A place to share knowledge</p>
-    </section>
-    <section class="content">
-        <div class="content__feed">
-            <app-feeds [(tag)]="selectedTag"/>
-        </div>
-        <div class="tags-container">
-            <h4 class="tags-container__title">Popular Tags</h4>
-            <div class="tags-container__tags">
-                @for (tag of tags; track tag) {
-                    <a (click)="getFeedForTag(tag)" class="tags-container__tag-pill">{{tag}}</a>
-                }
-            </div>
-        </div>
-    </section>
+  <section class="banner">
+    <h2 class="banner__title">conduit</h2>
+    <p class="banner__desc">A place to share knowledge</p>
+  </section>
+  <section class="content">
+    <div class="content__feed">
+      <app-feeds [(tag)]="selectedTag" />
+      <div>
+        @if (articlesQuery.isPending()) {
+        <p>Loading articles...</p>
+        } @else if (articlesQuery.isError()) {
+        <p>Error loading articles. Please try again</p>
+        } @else { @for (article of articlesQuery.data()?.articles; track
+        article.slug) {
+        <app-article [article]="article" />
+        } }
+      </div>
+    </div>
+    <div class="tags-container">
+      <h4 class="tags-container__title">Popular Tags</h4>
+      <ul class="tags-container__tags">
+        @for (tag of tagsQuery.data()?.tags; track tag) {
+        <li>
+          <a (click)="getFeedForTag(tag)" class="tags-container__tag-pill">{{
+            tag
+          }}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </section>
 </main>

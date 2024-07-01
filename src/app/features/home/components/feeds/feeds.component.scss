@@ -2,7 +2,7 @@
 
 .feeds {
     @include abstracts.flex-row-center;
-    border-bottom: 1px solid abstracts.$gray-500;
+    border-bottom: 1px solid abstracts.$border-color;
     &__feed {
         @include abstracts.text-bold(1rem, 600, abstracts.$gray-400);
         padding-inline: 1rem;

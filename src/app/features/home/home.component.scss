@@ -30,7 +30,6 @@
     }
     margin-top: 2rem;
     &__feed {
-        height: 300px;
         padding-right: 2rem;
     }
 
@@ -53,12 +52,7 @@
         }
 
         &__tag-pill {
-            @include abstracts.text-bold(.85rem, 400, white);
-            padding: .1rem .5rem;
-            border-radius: 10rem;
-            background-color: abstracts.$gray-700;
-            cursor: pointer;
-
+            @include abstracts.tagPill(abstracts.$gray-700, white, abstracts.$gray-700);
             &:hover {
                 background-color: abstracts.$gray-800;
             }

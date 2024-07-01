@@ -1,32 +1,41 @@
-@use '../abstracts/breakpoints';
+@use "../abstracts/breakpoints";
+@use "../abstracts/variables";
 
 @mixin flex-row-center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 @mixin flex-col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin text-bold($size: 1rem, $weight: 400, $color: black) {
-    font: {
-        size: $size;
-        weight: $weight;
-    };
-    color: $color
-    
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  color: $color;
 }
 
 @mixin maxCap {
-    max-width: 1200px;
-    margin: 0 auto;
-    
-    @include breakpoints.desktop {
-        max-width: calc(100vw - 10rem);
-    }
+  max-width: 1200px;
+  margin: 0 auto;
 
-    @include breakpoints.tablet {
-        max-width: calc(100vw - 5rem);
-    }
+  @include breakpoints.desktop {
+    max-width: calc(100vw - 10rem);
+  }
+
+  @include breakpoints.tablet {
+    max-width: calc(100vw - 5rem);
+  }
+}
+
+@mixin tagPill($backgroundColor, $color, $borderColor, $borderRadius: 10rem, $paddingBlock: 0.1rem, $fontSize: 0.85rem) {
+  @include text-bold($fontSize, 400, $color);
+  background-color: $backgroundColor;
+  padding: $paddingBlock 0.5rem;
+  border-radius: $borderRadius;
+  border: 1px solid $borderColor;
+  cursor: pointer;
 }

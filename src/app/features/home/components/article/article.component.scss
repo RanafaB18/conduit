@@ -1,0 +1,105 @@
+@use "../../../../../sass/abstracts";
+
+.article {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid abstracts.$border-color;
+  &__header {
+    @include abstracts.flex-row-center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    &__author-meta {
+      @include abstracts.flex-row-center;
+      &__author-image {
+        border-radius: 50%;
+        margin-right: 0.42rem;
+      }
+
+      &__author-name {
+        @include abstracts.text-bold(
+          $color: abstracts.$primary-green,
+          $weight: 600
+        );
+      }
+
+      &__created-at {
+        @include abstracts.text-bold(0.8rem, 400, abstracts.$gray-400);
+      }
+      p {
+        line-height: 1;
+      }
+    }
+
+    &__favorited {
+      border: 1px solid abstracts.$primary-green;
+      border-radius: 0.2rem;
+      padding-inline: 0.3rem;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+        background-color: abstracts.$primary-green;
+        * {
+          color: white;
+          background-color: abstracts.$primary-green;
+        }
+
+        svg {
+          fill: white;
+        }
+      }
+
+      &__icon {
+        display: inline;
+        width: 1rem;
+        height: 1rem;
+        color: abstracts.$primary-green;
+        fill: abstracts.$primary-green;
+        vertical-align: middle;
+        margin-bottom: 3px;
+        margin-right: 2px;
+      }
+
+      &__count {
+        @include abstracts.text-bold(0.8rem, 600, abstracts.$primary-green);
+      }
+    }
+  }
+
+  &__content {
+    &__title {
+      @include abstracts.text-bold(1.5rem, 600);
+      margin-bottom: 2px;
+    }
+
+    &__desc {
+      @include abstracts.text-bold($color: abstracts.$gray-400);
+      line-height: 1.1;
+    }
+  }
+
+  &__footer {
+    @include abstracts.flex-row-center;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    &__more {
+        @include abstracts.text-bold(0.8rem, 400, abstracts.$gray-400,)
+    }
+    &__tagList {
+      &__tagPill {
+        @include abstracts.tagPill(
+          $backgroundColor: white,
+          $color: abstracts.$gray-400,
+          $borderColor: abstracts.$gray-500,
+          $borderRadius: 2rem,
+          $paddingBlock: 0rem,
+          $fontSize: 0.8rem
+        );
+        float: left;
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}
