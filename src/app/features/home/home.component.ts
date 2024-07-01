@@ -4,11 +4,13 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ArticleService } from './services/article.service';
 import { ArticleComponent } from './components/article/article.component';
 import { mockArticles } from '../../core/mockdata';
+import { ArticleLoaderComponent } from './components/article-loader/article-loader.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FeedsComponent, ArticleComponent],
+  imports: [FeedsComponent, ArticleComponent, ArticleLoaderComponent, NgxSkeletonLoaderModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

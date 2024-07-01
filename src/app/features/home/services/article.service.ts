@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
+import { delay, lastValueFrom } from 'rxjs';
 import { ArticleResponse } from '../models.types';
 
 @Injectable({
@@ -17,13 +17,13 @@ export class ArticleService {
   getGlobalFeed(pageNumber: number) {
     const offset = pageNumber * 10 - 10 ;
     return lastValueFrom(
-      this.#http.get<ArticleResponse>(`${this.baseUrl}/articles`, { params: { limit: 10, offset }}),
+      this.#http.get<ArticleResponse>(`${this.baseUrl}/articles`, { params: { limit: 10, offset }}).pipe(delay(10000)),
     )
   }
 
   getTags() {
     return lastValueFrom(
-      this.#http.get<{tags: string[]}>(`${this.baseUrl}/tags`)
+      this.#http.get<{tags: string[]}>(`${this.baseUrl}/tags`).pipe(delay(10000))
     )
   }
 }

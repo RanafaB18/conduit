@@ -1,0 +1,25 @@
+@use "../../../../../sass/abstracts";
+
+.article {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid abstracts.$border-color;
+  &__header {
+    @include abstracts.flex-row-center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    &__author-meta {
+      @include abstracts.flex-row-center;
+    }
+  }
+
+  &__footer {
+    @include abstracts.flex-row-center;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    &__more {
+        @include abstracts.text-bold(0.8rem, 400, abstracts.$gray-400,)
+    }
+  }
+}

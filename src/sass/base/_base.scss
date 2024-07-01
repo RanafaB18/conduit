@@ -15,3 +15,13 @@ button {
     background-color: transparent;
     border: 0;
 }
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-center {
+    display: flex;
+    align-items: center;
+}

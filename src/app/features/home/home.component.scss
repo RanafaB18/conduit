@@ -27,10 +27,14 @@
     @include abstracts.maxCap;
     @include abstracts.tablet {
         grid-template-columns: 1fr;
+        
     }
     margin-top: 2rem;
     &__feed {
         padding-right: 2rem;
+        @include abstracts.tablet {
+            padding-right: 0;
+        }
     }
 
     .tags-container {

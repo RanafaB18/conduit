@@ -1,0 +1,57 @@
+<article class="article">
+  <div class="article__header">
+    <div class="article__header__author-meta">
+      <ngx-skeleton-loader appearance="circle" />
+      <div class="flex-col">
+        <ngx-skeleton-loader
+          [theme]="{
+            width: '150px',
+            height: '10px',
+            'margin-bottom': '0'
+          }"
+        />
+        <ngx-skeleton-loader
+          [theme]="{
+            width: '150px',
+            height: '10px'
+          }"
+        />
+      </div>
+    </div>
+    <ngx-skeleton-loader
+          [theme]="{
+            width: '47px',
+            height: '25px'
+          }"
+        />
+  </div>
+  <div>
+    <ngx-skeleton-loader
+    [theme]="{
+      height: '25px',
+      'margin-bottom': 0
+    }"
+  />
+    <ngx-skeleton-loader
+    [theme]="{
+      height: '15px'
+    }"
+  />
+  </div>
+  <div class="article__footer">
+    <button class="article__footer__more">Read more...</button>
+    <ul>
+      @for (num of [1, 2, 3]; track num) {
+        <ngx-skeleton-loader
+        [theme]="{
+          width: '40px',
+          height: '22px',
+          'margin-bottom': 0,
+          'margin-left': '.3rem',
+          'border-radius': '2rem',
+        }"
+      />
+      }
+    </ul>
+  </div>
+</article>
