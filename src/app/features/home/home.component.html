@@ -7,7 +7,7 @@
     <div class="content__feed">
       <app-feeds [(tag)]="selectedTag" />
       <div>
-        @if (articlesQuery.isPending()) { @for (loaders of [1, 2, 3, 4, 5];
+        <!-- @if (articlesQuery.isPending()) { @for (loaders of [1, 2, 3];
         track $index) {
         <app-article-loader />
         } } @else if (articlesQuery.isError()) {
@@ -15,16 +15,24 @@
         } @else { @for (article of articlesQuery.data()?.articles; track
         article.slug) {
         <app-article [article]="article" />
-        } }
-        <!-- @for (article of articles.articles; track article.slug) {
+        } } -->
+        @for (article of articles; track article) {
         <app-article [article]="article" />
-        } -->
+        }
       </div>
+      <article class="pagination">
+        @for (page of createRange(26); track page) {
+          <button (click)="currentPage.set(page)" [class]="{
+            'pagination__page-button': true,
+            'pagination__page-button--active': page === currentPage()
+          }">{{page}}</button>
+        }
+      </article>
     </div>
     <div class="tags-container">
       <h4 class="tags-container__title">Popular Tags</h4>
       <ul class="tags-container__tags">
-        @if (tagsQuery.isPending()) { @for (pillLoader of [1, 2, 3, 4, 5]; track
+        <!-- @if (tagsQuery.isPending()) { @for (pillLoader of [1, 2, 3, 4, 5]; track
         $index) {
         <ngx-skeleton-loader
           [theme]="{
@@ -40,8 +48,8 @@
       } 
       @else if (tagsQuery.isError()) {
         <p>Error loading popular tags</p>
-      }
-      @for (tag of tagsQuery.data()?.tags; track tag) {
+      } -->
+      @for (tag of tags; track tag) {
         <li>
           <a (click)="getFeedForTag(tag)" class="tags-container__tag-pill">{{
             tag
@@ -50,5 +58,5 @@
         }
       </ul>
     </div>
-  </section>
+  </section>  
 </main>

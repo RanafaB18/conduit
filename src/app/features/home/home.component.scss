@@ -1,65 +1,110 @@
-@use '../../../sass/abstracts';
+@use "../../../sass/abstracts";
 
 .banner {
-    display: grid;
-    place-content: center;
-    gap: 0.62rem;
-    text-align: center;
-    background-color: abstracts.$primary-green;
-    padding-block: 2rem;
+  display: grid;
+  place-content: center;
+  gap: 0.62rem;
+  text-align: center;
+  background-color: abstracts.$primary-green;
+  padding-block: 2rem;
 
-    &__title {
-        text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-        @include abstracts.text-bold(3.5rem, 800, white);
-        font-family: 'Titillium Web';
-    }
-    
-    &__desc {
-        @include abstracts.text-bold(1.5rem, 300, white);
-        font-family: 'Source Sans Pro 3';
-        letter-spacing: .1rem;
-    }
+  &__title {
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    @include abstracts.text-bold(3.5rem, 800, white);
+    font-family: "Titillium Web";
+  }
+
+  &__desc {
+    @include abstracts.text-bold(1.5rem, 300, white);
+    font-family: "Source Sans Pro 3";
+    letter-spacing: 0.1rem;
+  }
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    @include abstracts.maxCap;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  @include abstracts.maxCap;
+  @include abstracts.tablet {
+    grid-template-columns: 1fr;
+  }
+  margin-top: 2rem;
+  &__feed {
+    padding-right: 2rem;
     @include abstracts.tablet {
-        grid-template-columns: 1fr;
-        
+      padding-right: 0;
     }
-    margin-top: 2rem;
-    &__feed {
-        padding-right: 2rem;
-        @include abstracts.tablet {
-            padding-right: 0;
-        }
+  }
+
+  .tags-container {
+    background-color: abstracts.$gray-200;
+    padding: 0.6rem 0.5rem 0.7rem 0.5rem;
+    height: max-content;
+    border-radius: 0.25rem;
+
+    &__title {
+      @include abstracts.text-bold(1rem, 600);
+      font-family: "Source Sans Pro 3";
+      margin-bottom: 0.22rem;
     }
 
-    .tags-container {
-        background-color: abstracts.$gray-200;
-        padding: 0.6rem .5rem .7rem .5rem;
-        height: max-content;
-        border-radius: .25rem;
-
-        &__title {
-            @include abstracts.text-bold(1rem, 600);
-            font-family: 'Source Sans Pro 3';
-            margin-bottom: 0.22rem;
-        }
-
-        &__tags {
-            @include abstracts.flex-row-center;
-            flex-wrap: wrap;
-            gap: .32rem;
-        }
-
-        &__tag-pill {
-            @include abstracts.tagPill(abstracts.$gray-700, white, abstracts.$gray-700);
-            &:hover {
-                background-color: abstracts.$gray-800;
-            }
-        }
+    &__tags {
+      @include abstracts.flex-row-center;
+      flex-wrap: wrap;
+      gap: 0.32rem;
     }
+
+    &__tag-pill {
+      @include abstracts.tagPill(
+        abstracts.$gray-700,
+        white,
+        abstracts.$gray-700
+      );
+      &:hover {
+        background-color: abstracts.$gray-800;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include abstracts.maxCap;
+  margin-block: 1rem;
+  
+  :first-child {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    margin-left: 0;
+  }
+  :last-child {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+  &__page-button {
+    position: relative;
+    border: 1px solid abstracts.$border-color;
+    padding: 0.7rem;
+    margin-left: -1px;
+    @include abstracts.text-bold(
+      $weight: 600,
+      $color: abstracts.$primary-green
+    );
+
+    &:not(&--active):hover {
+      text-decoration: underline;
+      text-decoration-color: abstracts.$primary-green;
+      background-color: abstracts.$gray-200;
+    }
+
+    &--active {
+      background-color: abstracts.$primary-green;
+      border-color: abstracts.$primary-green;
+      color: white;
+      z-index: 2;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: white;
+      }
+    }
+  }
 }

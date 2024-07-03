@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { FeedsComponent } from './components/feeds/feeds.component';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ArticleService } from './services/article.service';
@@ -19,17 +19,18 @@ export class HomeComponent {
 
   currentPage = signal<number>(1);
 
-  articlesQuery = injectQuery(() => ({
-    queryKey: ['articles', this.currentPage()],
-    queryFn: () => this.#articleService.getGlobalFeed(this.currentPage())
-  }))
+  // articlesQuery = injectQuery(() => ({
+  //   queryKey: ['articles', this.currentPage()],
+  //   queryFn: () => this.#articleService.getGlobalFeed(this.currentPage())
+  // }))
 
-  tagsQuery = injectQuery(() => ({
-    queryKey: ['tags'],
-    queryFn: () => this.#articleService.getTags()
-  }))
+  // tagsQuery = injectQuery(() => ({
+  //   queryKey: ['tags'],
+  //   queryFn: () => this.#articleService.getTags()
+  // }))
+  totalPages = signal<number[]>([])
 
-  articles = mockArticles;
+  articles = mockArticles.articles;
   
   tags = [
     "eos",
@@ -46,7 +47,20 @@ export class HomeComponent {
 
   selectedTag = signal<string>('')
 
+  constructor() {
+    // effect(() => {
+    //   if (this.articlesQuery.data() && this.articlesQuery.data()?.articlesCount) {
+    //     this.totalPages.set(Array.from(new Array(Math.ceil(this.articlesQuery.data()!.articlesCount / 10)), (val, index) => index + 1))
+    //     console.log('Total Pages', this.totalPages());
+    //   }
+    // }, { allowSignalWrites: true })
+  }
   getFeedForTag(tag: string) {
     this.selectedTag.set(tag)
   }
+
+createRange(range: number) {
+  
+  return Array.from({length: range}, (_, i) => i + 1)
+}
 }

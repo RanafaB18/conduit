@@ -2,7 +2,7 @@
 
 .article {
   padding-block: 1.5rem;
-  border-bottom: 1px solid abstracts.$border-color;
+  border-top: 1px solid abstracts.$border-color;
   &__header {
     @include abstracts.flex-row-center;
     justify-content: space-between;
