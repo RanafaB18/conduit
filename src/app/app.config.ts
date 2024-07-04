@@ -6,5 +6,11 @@ import { provideHttpClient } from '@angular/common/http';
 import { QueryClient, provideQueryClient } from '@tanstack/angular-query-experimental';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withHashLocation()), provideHttpClient(), provideQueryClient(new QueryClient())],
+  providers: [provideRouter(routes, withHashLocation()), provideHttpClient(), provideQueryClient(new QueryClient({
+   defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 10
+    }
+   } 
+  }))],
 };

@@ -22,3 +22,9 @@ export type ArticleResponse = {
     articles: Article[],
     articlesCount: number
 }
+
+export type Filters = {
+    tag?: string;
+    author?: string;
+    favorited?: boolean;
+}

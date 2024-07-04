@@ -3,13 +3,15 @@
     <div class="article__header__author-meta">
       <img
         class="article__header__author-meta__author-image"
+        [routerLink]="'/' + article().author.username"
         [src]="article().author.image"
         [alt]="'profile image of ' + article().author.username"
       />
       <div>
-        <p class="article__header__author-meta__author-name">
+        <a [routerLink]="'/' + article().author.username"
+        class="article__header__author-meta__author-name">
           {{ article().author.username }}
-        </p>
+        </a>
         <p class="article__header__author-meta__created-at">
           {{ article().createdAt | date : "longDate" }}
         </p>
