@@ -1,0 +1,19 @@
+
+@use "../../../../sass/abstracts" as *;
+input {
+    width: 100%;
+    padding: .75rem 1.5rem;
+    outline: 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: .3rem;
+    @include text-bold(1.25rem, 600, $dark-gray);
+    &::placeholder {
+        @include text-bold(1.25rem, 600, rgba($color: $dark-gray, $alpha: 0.4) );
+    }
+}
+
+input {
+    &:focus-visible, &:focus {
+        border: 1px solid #66afe9;
+    }
+}

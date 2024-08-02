@@ -1,4 +1,4 @@
-import { ArticleResponse } from "../features/home/models.types";
+import { ArticleResponse } from "../features/home/home.types";
 
 export const mockArticles: ArticleResponse = {
     "articles": [

@@ -1,0 +1,36 @@
+@use "../../../sass/abstracts/" as *;
+
+.auth-page {
+  max-width: 35%;
+  margin: 0 auto;
+  margin-top: 1rem;
+
+  @include tablet {
+    max-width: 85%;
+  }
+
+  &__title {
+    text-align: center;
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.1rem;
+    }
+    a {
+      @include text-bold(1rem, 600, $primary-green);
+    }
+  }
+  .auth-form {
+    gap: 1rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+    button {
+      background-color: $primary-green;
+      padding: 0.75rem 1.5rem;
+      margin-left: auto;
+      border-radius: 0.3rem;
+      width: max-content;
+      @include text-bold(1.2rem, 600, white);
+    }
+  }
+}

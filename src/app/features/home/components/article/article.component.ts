@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { Article } from '../../models.types';
+import { Article } from '../../home.types';
 import { DatePipe } from '@angular/common';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RouterLink } from '@angular/router';

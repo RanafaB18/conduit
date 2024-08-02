@@ -2,17 +2,13 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { delay, lastValueFrom } from 'rxjs';
-import { ArticleResponse, Filters } from '../models.types';
+import { ArticleResponse, Filters } from '../home.types';
+import { ApiService } from '../../../core/services/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleService {
-  baseUrl = environment.baseUrl;
-  #http = inject(HttpClient);
-  
-
-  constructor() { }
+export class ArticleService extends ApiService {
 
   getGlobalFeed(pageNumber: number, filters?: Filters) {
     const offset = pageNumber * 10 - 10 ;
@@ -20,12 +16,12 @@ export class ArticleService {
     let params;
     filters && (params = this.toHttpParams(defaultParams));
     return lastValueFrom(
-      this.#http.get<ArticleResponse>(`${this.baseUrl}/articles`, { params }))
+      this.http.get<ArticleResponse>(`${this.baseUrl}/articles`, { params }))
   }
 
   getTags() {
     return lastValueFrom(
-      this.#http.get<{tags: string[]}>(`${this.baseUrl}/tags`))
+      this.http.get<{tags: string[]}>(`${this.baseUrl}/tags`))
   }
 
   toHttpParams(obj: Record<string, string | number | boolean>): HttpParams {

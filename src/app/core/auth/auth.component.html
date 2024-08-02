@@ -1,0 +1,22 @@
+<main class="auth-page">
+    <div class="auth-page__title">
+        <h1>{{title}}</h1>
+        @if (page === 'register') {
+            <a routerLink="/login">Have an account?</a>
+        } @else {
+            <a routerLink="/register">Need an account?</a>
+        }
+    </div>
+    <form class="flex-col auth-form" [formGroup]="form" (ngSubmit)="submitForm()">
+        @if (page === 'register') {
+            <app-input [control]="getControl('username')" type="text" placeholder="Username" />
+        } 
+        <app-input [control]="getControl('email')" type="email" placeholder="Email" />
+        <app-input
+          [control]="getControl('password')"
+          type="password"
+          placeholder="Password"
+        />
+        <button [attr.disabled]="formQuery.isPending()" [class] type="submit">{{title}}</button>
+    </form>
+</main>
